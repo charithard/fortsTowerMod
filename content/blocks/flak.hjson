@@ -1,0 +1,85 @@
+type: ItemTurret
+name: "Зенитная установка (Flak)"
+description: "Оборонительное орудие для борьбы с воздушными целями и снарядами. Снаряды взрываются в воздухе, выпуская облако осколков."
+size: 2
+health: 700
+range: 200
+// Важно: зенитка в Forts часто бьет и по земле, если враг подошел близко
+targetAir: true
+targetGround: true
+ammoPerShot: 2
+
+// Хорошая скорострельность для перехвата (0.6 сек между выстрелами)
+reload: 35
+inaccuracy: 3
+rotateSpeed: 12 // Быстрый поворот для слежения за авиацией
+
+shootSound: shootSnap
+recoil: 2
+shootShake: 1
+
+ammoTypes: {
+  // Стандартные осколки
+  lead: {
+    type: FlakBulletType
+    speed: 5
+    damage: 15
+    splashDamage: 25
+    splashDamageRadius: 30
+    explodeRange: 20
+    collidesGround: true
+    ammoMultiplier: 4
+    fragBullets: 4
+    fragBullet: {
+      type: BasicBulletType
+      damage: 5
+      speed: 2
+      lifetime: 10
+    }
+  }
+  // Тяжелая шрапнель
+  graphite: {
+    type: FlakBulletType
+    speed: 6
+    damage: 20
+    splashDamage: 35
+    splashDamageRadius: 35
+    explodeRange: 25
+    collidesGround: true
+    ammoMultiplier: 3
+    fragBullets: 6
+    fragBullet: {
+      type: BasicBulletType
+      damage: 8
+      speed: 2.5
+      lifetime: 12
+    }
+  }
+  // Стеклянная шрапнель (лучшая против авиации)
+  metaglass: {
+    type: FlakBulletType
+    speed: 5.5
+    damage: 12
+    splashDamage: 40
+    splashDamageRadius: 40
+    explodeRange: 30
+    collidesGround: true
+    ammoMultiplier: 5
+    fragBullets: 8
+    fragBullet: {
+      type: BasicBulletType
+      damage: 4
+      speed: 3
+      lifetime: 15
+    }
+  }
+}
+
+requirements: [
+  copper/120
+  lead/150
+  graphite/40
+]
+
+category: turret
+research: minigun

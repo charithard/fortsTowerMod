@@ -1,0 +1,54 @@
+type: ItemTurret
+name: "Пушка"
+description: "Тяжелое орудие прямой наводки. Выстреливает высокоскоростным кинетическим снарядом, который легко проходит сквозь несколько слоев брони."
+size: 3
+health: 1500
+range: 260
+ammoPerShot: 5
+
+// Одиночный выстрел с ощутимой перезарядкой (около 2.5 секунд)
+reload: 150
+rotateSpeed: 4
+inaccuracy: 0 // Пушка очень точная
+
+// Энергия для механизмов отката
+consumePower: 1.2
+
+recoil: 5
+shootShake: 4
+shootSound: cannon
+
+ammoTypes: {
+  // Стандартный бронебойный снаряд
+  graphite: {
+    speed: 12
+    damage: 120
+    width: 10
+    height: 22
+    lifetime: 22
+    pierce: true
+    pierceCap: 3 // Пробивает 3 блока/юнита
+    ammoMultiplier: 1
+  }
+  // Утяжеленный титановый снаряд
+  titanium: {
+    speed: 14
+    damage: 160
+    width: 12
+    height: 26
+    lifetime: 19
+    pierce: true
+    pierceCap: 4
+    ammoMultiplier: 1
+    reloadMultiplier: 1.1
+  }
+}
+
+requirements: [
+  lead/250
+  graphite/150
+  titanium/60
+]
+
+category: turret
+research: sniper

@@ -1,0 +1,74 @@
+type: ItemTurret
+name: "Спутниковый целеуказатель 'Возмездие'"
+description: "Запускает тяжелый бронированный маяк. При приземлении маяк активирует мощнейший вертикальный орбитальный лазер, прожигающий всё в зоне действия в течение нескольких секунд. Сбейте маяк до падения!"
+size: 4
+health: 6000 // Очень прочная, как Погибель
+range: 550 // Немного снизим дальность ради баланса
+reload: 800 // Перезарядка чуть быстрее, но требует больше ресурсов
+ammoPerShot: 25
+
+consumePower: 35.0 // Потребление энергии зашкаливает
+rotateSpeed: 1.0
+
+ammoTypes: {
+  surge-alloy: { // Только на Кинетическом сплаве (Surge Alloy)
+    type: MissileBulletType
+    speed: 1.8 // Очень медленный полет, чтобы был страх
+    damage: 50 // Прямой урон при падении мал
+    width: 32
+    height: 32
+    shrinkY: 0
+    lifetime: 310
+    
+    // Снаряд-танк
+    hittable: true
+    absorbable: true
+    health: 450 // Трудно сбить одной зениткой
+    
+    fragBullets: 1
+    fragVelocityMin: 0
+    fragVelocityMax: 0
+    fragBullet: {
+      type: BulletType
+      damage: 0
+      lifetime: 180 // Луч жжет 3 секунды
+      speed: 0
+      
+      // Эффект при взрыве (землетрясение)
+      hitEffect: massiveExplosion
+      shootEffect: shootBig
+      
+      // Сама механика луча
+      onUpdateEffect: {
+        type: MultiEffect
+        effects: [
+          { // СВЕРХ-МОЩНЫЙ ЛУЧ "ЛИНИЯ"
+            type: LaserBulletType
+            damage: 2200 // "Пиши пропало" (урон тикающий)
+            length: 1200 // Падает с неба
+            width: 120 // ШИРОЧЕННЫЙ луч
+            colors: [ffcc66, ffffff, ffffff]
+            rotationOffset: 90 // Вертикальный удар
+            makeFire: true
+          },
+          { // Эффект испарения в эпицентре
+            type: ParticleEffect
+            particles: 25
+            length: 80
+            lifetime: 50
+            colorFrom: ffcc66
+          }
+        ]
+      }
+    }
+  }
+}
+
+requirements: [
+  thorium/600
+  plastanium/300
+  surge-alloy/250
+]
+
+category: turret
+research: heavy-howitzer

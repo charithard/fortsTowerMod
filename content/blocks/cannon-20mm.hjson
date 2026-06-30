@@ -1,0 +1,56 @@
+type: ItemTurret
+name: "20-мм Орудие"
+description: "Тяжелое скорострельное орудие. Стреляет бронебойными снарядами, которые легко проходят сквозь обшивку и наносят критический урон технике."
+size: 3
+health: 1800
+range: 280
+ammoPerShot: 4
+
+// Хороший темп стрельбы для такого калибра
+reload: 60
+rotateSpeed: 4
+inaccuracy: 1
+
+// Огромная отдача и тряска
+recoil: 4
+shootShake: 3
+shootSound: cannon
+
+// Энергия для работы автоматики
+consumePower: 2.0
+
+ammoTypes: {
+  titanium: {
+    speed: 14
+    damage: 110
+    width: 10
+    height: 20
+    lifetime: 20
+    pierce: true
+    pierceCap: 3
+    knockback: 1.5
+    ammoMultiplier: 2
+  }
+  thorium: {
+    speed: 12
+    damage: 160
+    width: 12
+    height: 24
+    lifetime: 24
+    pierce: true
+    pierceCap: 4
+    knockback: 2.0
+    ammoMultiplier: 1
+    hitEffect: blastExplosion
+  }
+}
+
+requirements: [
+  lead/350
+  titanium/150
+  thorium/80
+  silicon/100
+]
+
+category: turret
+research: heavy-minigun

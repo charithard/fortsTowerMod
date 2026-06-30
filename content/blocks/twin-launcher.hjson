@@ -1,0 +1,79 @@
+type: ItemTurret
+name: "Ракетная установка 'Дуплет'"
+description: "Выпускает две тяжелые самонаводящиеся ракеты с короткой задержкой. Эффективна для прорыва одиночных систем ПВО."
+size: 3
+health: 1500
+range: 320
+ammoPerShot: 6
+
+// Перезарядка между залпами (около 3.5 секунд)
+reload: 210
+
+// Настройка парного выстрела
+shoot: {
+    type: ShootPattern
+    shots: 2
+    shotDelay: 15 // Задержка между первой и второй ракетой
+}
+
+rotateSpeed: 4
+shootSound: missile
+
+ammoTypes: {
+  // Стандартная фугасная ракета
+  blast-compound: {
+    type: MissileBulletType
+    speed: 3.5
+    damage: 35
+    splashDamage: 60
+    splashDamageRadius: 24
+    width: 10
+    height: 16
+    shrinkY: 0
+    lifetime: 100
+    homingPower: 0.12
+    homingRange: 180
+    
+    // Ракету можно сбить!
+    hittable: true
+    absorbable: true
+    
+    hitEffect: blastExplosion
+    despawnEffect: blastExplosion
+    
+    trailColor: ff795e
+    trailWidth: 2.5
+    trailLength: 15
+  }
+  // ЭМИ-вариант (если хочешь использовать те же ракеты, но с эффектом)
+  silicon: {
+    type: MissileBulletType
+    speed: 4
+    damage: 15
+    splashDamage: 30
+    splashDamageRadius: 40
+    // Накладывает эффект замедления, который мы создали ранее
+    status: emp-paralysis
+    statusDuration: 180
+    
+    width: 10
+    height: 14
+    lifetime: 90
+    hittable: true
+    homingPower: 0.15
+    
+    frontColor: 8ca9ff
+    backColor: 5a82ff
+    trailColor: 8ca9ff
+  }
+}
+
+requirements: [
+  lead/250
+  titanium/120
+  silicon/150
+  blast-compound/60
+]
+
+category: turret
+research: swarm-launcher

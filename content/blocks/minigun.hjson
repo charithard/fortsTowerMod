@@ -1,0 +1,61 @@
+type: ItemTurret
+name: "Пулемет Forts"
+description: "Базовое скорострельное орудие. Выпускает очереди по 3 снаряда. Эффективен для подавления пехоты и защиты от ракет."
+size: 2
+health: 600
+range: 170
+ammoPerShot: 1
+
+// Параметры стрельбы: 3 выстрела в очереди, 4 кадра между пулями
+shoot: {
+    type: ShootBurst
+    shots: 3
+    shotDelay: 4
+}
+
+// Перезарядка между очередями (18 кадров = 0.3 сек)
+reload: 18
+inaccuracy: 7.5
+rotateSpeed: 10
+
+// Визуальные эффекты
+recoil: 1.5
+shootShake: 0.8
+shootSound: pew
+
+ammoTypes: {
+  copper: {
+    speed: 4.5
+    damage: 9
+    width: 6
+    height: 9
+    lifetime: 40
+    ammoMultiplier: 5
+  }
+  lead: {
+    speed: 4
+    damage: 12
+    width: 7
+    height: 10
+    lifetime: 45
+    ammoMultiplier: 4
+  }
+  silicon: {
+    speed: 4.5
+    damage: 10
+    width: 6
+    height: 9
+    lifetime: 40
+    homingPower: 0.08
+    homingRange: 50
+    ammoMultiplier: 6
+  }
+}
+
+requirements: [
+  copper/85
+  lead/60
+]
+
+category: turret
+research: duo

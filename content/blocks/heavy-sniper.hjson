@@ -1,0 +1,74 @@
+type: ItemTurret
+name: "Тяжелый снайпер 'Охотник'"
+description: "Элитное дальнобойное орудие. Прошивает насквозь несколько целей и наносит критический урон строениям. Требует время на стабилизацию перед выстрелом."
+size: 2
+health: 900
+// Огромная дистанция стрельбы
+range: 420
+ammoPerShot: 3
+
+// Длительное прицеливание (почти 1 секунда подготовки)
+shoot: {
+    firstShotDelay: 55
+}
+
+// Медленная перезарядка (около 3 секунд)
+reload: 180
+inaccuracy: 0
+rotateSpeed: 2 // Очень медленный и тяжелый поворот
+
+// Потребление энергии для систем наведения
+consumePower: 1.5
+
+recoil: 5
+shootShake: 3
+shootSound: railgun
+
+ammoTypes: {
+  // Тяжелый графит (бронебойный)
+  graphite: {
+    speed: 12
+    damage: 150
+    width: 7
+    height: 24
+    lifetime: 35
+    ammoMultiplier: 1
+    pierce: true
+    pierceCap: 4 // Пробивает 4 цели или стены насквозь
+    hitEffect: blastExplosion
+  }
+  // Титановый сердечник (сверхскоростной)
+  titanium: {
+    speed: 16
+    damage: 180
+    width: 6
+    height: 28
+    lifetime: 30
+    ammoMultiplier: 1
+    pierce: true
+    pierceCap: 5
+    reloadMultiplier: 1.1
+  }
+  // Ториевый снаряд (разрушитель)
+  thorium: {
+    speed: 10
+    damage: 280
+    width: 9
+    height: 30
+    lifetime: 45
+    ammoMultiplier: 1
+    pierce: true
+    pierceCap: 3
+    hitEffect: massiveExplosion
+  }
+}
+
+requirements: [
+  lead/200
+  graphite/120
+  titanium/80
+  silicon/50
+]
+
+category: turret
+research: sniper

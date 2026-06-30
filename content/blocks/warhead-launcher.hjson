@@ -1,0 +1,50 @@
+type: ItemTurret
+name: "Тяжелая Боеголовка"
+description: "Запускает мощную крылатую ракету. Обладает огромной разрушительной силой, но легко перехватывается при наличии хорошей сети ПВО."
+size: 4
+health: 2500
+range: 500
+ammoPerShot: 20
+
+reload: 600 // Перезарядка 10 секунд
+rotateSpeed: 1 // Очень неповоротливая
+
+consumePower: 4.0
+
+ammoTypes: {
+  thorium: {
+    type: MissileBulletType
+    speed: 1.5 // Летит ОЧЕНЬ медленно, как в Forts
+    damage: 100
+    splashDamage: 500
+    splashDamageRadius: 80
+    width: 20
+    height: 30
+    shrinkY: 0
+    lifetime: 350
+    
+    // Снаряд "живучий" — его сложно сбить одной пулей
+    hittable: true
+    absorbable: true
+    
+    homingPower: 0.05 // Почти не маневрирует
+    
+    hitEffect: reactorExplosion
+    despawnEffect: reactorExplosion
+    
+    // Визуальный след
+    trailColor: ffb380
+    trailWidth: 4
+    trailLength: 20
+  }
+}
+
+requirements: [
+  titanium/300
+  thorium/200
+  silicon/250
+  plastanium/100
+]
+
+category: turret
+research: heavy-mortar

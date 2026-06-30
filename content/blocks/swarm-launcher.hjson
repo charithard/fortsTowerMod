@@ -1,0 +1,48 @@
+type: ItemTurret
+name: "Ракетная установка 'Рой'"
+description: "Выпускает залп из самонаводящихся ракет. Ракеты уязвимы для систем ПВО, но их количество позволяет перегрузить защиту врага."
+size: 3
+health: 1200
+range: 350
+ammoPerShot: 4
+
+reload: 180 // Перезарядка между залпами (3 секунды)
+
+shoot: {
+    type: ShootPattern
+    shots: 6
+    shotDelay: 5
+}
+
+ammoTypes: {
+  // Стандартные ракеты
+  blast-compound: {
+    type: MissileBulletType
+    speed: 3
+    damage: 15
+    splashDamage: 25
+    splashDamageRadius: 16
+    width: 8
+    height: 12
+    shrinkY: 0
+    lifetime: 120
+    homingPower: 0.1
+    homingRange: 150
+    // ГЛАВНОЕ: ракету можно сбить
+    hittable: true
+    shootEffect: shootSmall
+    smokeEffect: shootSmallSmoke
+    hitEffect: blastExplosion
+    despawnEffect: blastExplosion
+  }
+}
+
+requirements: [
+  copper/200
+  lead/150
+  silicon/100
+  blast-compound/40
+]
+
+category: turret
+research: mortar

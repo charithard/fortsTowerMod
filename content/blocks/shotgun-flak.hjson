@@ -1,0 +1,70 @@
+type: ItemTurret
+name: "Дробовик-Зенитка"
+description: "Продвинутая защитная установка. Выстреливает широким веером осколков. Наносит сокрушительный урон вблизи, эффективна для зачистки неба от групп врагов."
+size: 2
+health: 1100
+range: 180
+// Дальность чуть меньше, чтобы провоцировать стрельбу "в упор"
+targetAir: true
+targetGround: true
+
+// Скорость стрельбы (чуть медленнее обычной зенитки, но залп мощнее)
+reload: 50
+
+shoot: {
+    shots: 12 // Вылетает сразу 12 дробин
+}
+
+// Тот самый большой разброс
+inaccuracy: 25
+rotateSpeed: 8
+
+shootSound: shotgun
+recoil: 4
+shootShake: 2
+
+ammoTypes: {
+  // Стандартная дробь
+  graphite: {
+    speed: 7
+    damage: 18
+    width: 4
+    height: 6
+    shrinkY: 0.3
+    lifetime: 30
+    ammoMultiplier: 4
+    // Пули исчезают сами по себе, создавая облако
+  }
+  // Тяжелая титановая дробь (пробивная)
+  titanium: {
+    speed: 8
+    damage: 24
+    width: 5
+    height: 8
+    shrinkY: 0.3
+    lifetime: 30
+    ammoMultiplier: 3
+    pierce: true
+    pierceCap: 2
+  }
+  // Огненная дробь
+  pyratite: {
+    speed: 6.5
+    damage: 15
+    width: 4
+    height: 6
+    makeFire: true
+    status: burning
+    lifetime: 35
+    ammoMultiplier: 5
+  }
+}
+
+requirements: [
+  lead/200
+  titanium/80
+  graphite/60
+]
+
+category: turret
+research: flak

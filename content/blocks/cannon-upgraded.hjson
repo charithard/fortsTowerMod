@@ -1,0 +1,60 @@
+type: ItemTurret
+name: "Улучшенная Тяжелая Пушка"
+description: "Модернизированная версия обычного орудия. Использует усиленные механизмы разгона снаряда. Прошивает практически любую оборону насквозь."
+size: 4
+health: 2800
+range: 380 // Дистанция значительно выше
+ammoPerShot: 10
+
+// Долгая перезарядка из-за огромной мощи (5-6 секунд)
+reload: 350
+rotateSpeed: 2
+
+// Больше энергии для магнитных ускорителей
+consumePower: 4.5
+
+recoil: 8
+shootShake: 8
+shootSound: explosionbig
+
+ammoTypes: {
+  // Супер-болванка из Тория
+  thorium: {
+    speed: 16
+    damage: 450
+    width: 15
+    height: 35
+    lifetime: 24
+    pierce: true
+    pierceCap: 10 // Настоящее "сверх-пробитие"
+    hitEffect: massiveExplosion
+    ammoMultiplier: 1
+  }
+  // Кинетический ускоритель (Пластаний)
+  plastanium: {
+    speed: 20 // Почти мгновенное попадание
+    damage: 380
+    width: 14
+    height: 40
+    lifetime: 19
+    pierce: true
+    pierceCap: 15
+    fragBullets: 5
+    fragBullet: {
+       damage: 40
+       speed: 5
+       lifetime: 20
+    }
+    ammoMultiplier: 1
+  }
+}
+
+requirements: [
+  titanium/300
+  thorium/150
+  silicon/200
+  plastanium/80
+]
+
+category: turret
+research: cannon

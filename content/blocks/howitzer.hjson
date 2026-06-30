@@ -1,0 +1,65 @@
+type: ItemTurret
+name: "Осадная Гаубица 'Молот'"
+description: "Запускает сверхтяжелый снаряд. При попадании создает цепочку взрывов, прошивающих базу врага насквозь."
+size: 4
+health: 4500
+range: 480
+ammoPerShot: 15
+reload: 500
+consumePower: 8.0
+recoil: 8
+shootSound: mediumCannon
+
+ammoTypes: {
+  blast-compound: {
+    type: ArtilleryBulletType
+    speed: 3
+    damage: 150
+    splashDamage: 200
+    splashDamageRadius: 45
+    width: 25
+    height: 25
+    lifetime: 160
+    hittable: true
+    
+    // ПЕРВЫЙ ПРЫЖОК
+    fragBullets: 1
+    fragVelocityMin: 1
+    fragVelocityMax: 1
+    fragBullet: {
+      type: ArtilleryBulletType
+      damage: 180
+      speed: 4
+      lifetime: 10 // Короткий полет вперед
+      splashDamage: 200
+      splashDamageRadius: 50
+      collides: true
+      despawnEffect: blastExplosion
+      
+      // ВТОРОЙ ПРЫЖОК
+      fragBullets: 1
+      fragVelocityMin: 1
+      fragVelocityMax: 1
+      fragBullet: {
+        type: ArtilleryBulletType
+        damage: 220
+        speed: 4
+        lifetime: 10
+        splashDamage: 250
+        splashDamageRadius: 60
+        collides: true
+        despawnEffect: massiveExplosion
+      }
+    }
+  }
+}
+
+requirements: [
+  titanium/500
+  thorium/350
+  silicon/300
+  plastanium/150
+]
+
+category: turret
+research: mortar

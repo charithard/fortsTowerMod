@@ -1,0 +1,67 @@
+type: ItemTurret
+name: "Тяжелая Гаубица"
+description: "Ультимативное осадное орудие. Запускает огромные, медленные снаряды по высокой траектории. Снаряд крайне уязвим для ПВО, но одно попадание способно стереть базу с лица земли."
+size: 4
+health: 4000
+range: 480 // Дальность на всю карту
+ammoPerShot: 15
+
+// Очень долгая перезарядка (около 8 секунд)
+reload: 480
+rotateSpeed: 1.2
+
+consumePower: 6.0
+
+recoil: 10
+shootShake: 12
+shootSound: explosionbig
+
+ammoTypes: {
+  // Классический "Чемодан" (Торий)
+  thorium: {
+    type: ArtilleryBulletType
+    speed: 2.5 // Медленный полет
+    damage: 300
+    splashDamage: 600
+    splashDamageRadius: 80
+    width: 25
+    height: 25
+    shrinkY: 0
+    lifetime: 200
+    collides: true
+    hittable: true // Снаряд можно сбить!
+    absorbable: true
+    ammoMultiplier: 1
+    hitEffect: massiveExplosion
+  }
+  // Напалмовая авиабомба (Пиратит + Взрывчатка)
+  blast-compound: {
+    type: ArtilleryBulletType
+    speed: 2
+    damage: 200
+    splashDamage: 800
+    splashDamageRadius: 100
+    makeFire: true
+    status: blasted
+    width: 30
+    height: 30
+    lifetime: 240
+    hittable: true
+    ammoMultiplier: 1
+    hitEffect: reactorExplosion
+    // Оставляет после себя море огня
+    statusDuration: 600
+  }
+}
+
+requirements: [
+  copper/1000
+  lead/800
+  titanium/400
+  thorium/250
+  silicon/300
+  plastanium/100
+]
+
+category: turret
+research: heavy-mortar

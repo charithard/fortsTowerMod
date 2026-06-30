@@ -1,0 +1,66 @@
+type: ItemTurret
+name: "Снайперская винтовка"
+description: "Высокоточное орудие большой дальности. Использует лазерный целеуказатель для наведения. Наносит колоссальный урон одиночными выстрелами."
+size: 2
+health: 500
+// Дальность значительно выше пулеметов
+range: 350
+ammoPerShot: 2
+
+// Лазерный указатель (визуальный эффект луча)
+// В Mindustry это реализуется через "shoot" эффекты или кастомный спрайт луча
+shoot: {
+    firstShotDelay: 40 // Задержка перед выстрелом (время "прицеливания")
+}
+
+// Перезарядка примерно 1.5 сек
+reload: 90
+// Нулевой разброс — снайпер не мажет
+inaccuracy: 0
+rotateSpeed: 3 // Медленный поворот, как у тяжелого ружья
+
+recoil: 4
+shootShake: 2
+shootSound: railgun // Мощный, хлесткий звук
+
+ammoTypes: {
+  lead: {
+    speed: 9
+    damage: 65
+    width: 5
+    height: 18
+    lifetime: 40
+    ammoMultiplier: 1
+    // Добавляем пробитие, чтобы прошивать щиты
+    pierce: true
+    pierceCap: 1
+  }
+  graphite: {
+    speed: 10
+    damage: 90
+    width: 6
+    height: 20
+    lifetime: 40
+    ammoMultiplier: 1
+    pierce: true
+    pierceCap: 2
+  }
+  silicon: {
+    speed: 11
+    damage: 75
+    width: 5
+    height: 18
+    lifetime: 40
+    homingPower: 0.05 // Минимальное донаведение
+    ammoMultiplier: 2
+  }
+}
+
+requirements: [
+  copper/120
+  lead/100
+  graphite/40
+]
+
+category: turret
+research: minigun

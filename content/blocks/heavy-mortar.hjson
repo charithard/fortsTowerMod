@@ -1,0 +1,69 @@
+type: ItemTurret
+name: "Тяжелый миномет"
+description: "Тяжелое осадное орудие. Запускает массивные снаряды по сверхвысокой траектории. Обладает огромным радиусом поражения и способностью пробивать прочную обшивку."
+size: 3
+health: 1400
+// Дальность значительно выше, чем у Т1 миномета
+range: 360
+ammoPerShot: 3
+
+// Медленная, размеренная стрельба (около 4 секунд на перезарядку)
+reload: 240
+inaccuracy: 5
+rotateSpeed: 2 // Очень медленный разворот массивной трубы
+
+shootSound: mediumCannon
+recoil: 5
+shootShake: 4
+
+ammoTypes: {
+  // Фугасный (Торий)
+  thorium: {
+    type: ArtilleryBulletType
+    speed: 3.5
+    damage: 40
+    splashDamage: 120
+    splashDamageRadius: 45
+    width: 15
+    height: 15
+    lifetime: 110
+    ammoMultiplier: 2
+    frontColor: f9c5d1
+    backColor: cb8ebf
+  }
+  // Взрывной "Большой бабах" (Взрывчатая смесь)
+  blast-compound: {
+    type: ArtilleryBulletType
+    speed: 3
+    damage: 30
+    splashDamage: 160
+    splashDamageRadius: 60
+    status: blasted
+    makeFire: true
+    lifetime: 120
+    ammoMultiplier: 3
+    hitEffect: massiveExplosion
+  }
+  // Напалмовый (Пиратит)
+  pyratite: {
+    type: ArtilleryBulletType
+    speed: 3.2
+    damage: 25
+    splashDamage: 80
+    splashDamageRadius: 50
+    makeFire: true
+    status: burning
+    lifetime: 115
+    ammoMultiplier: 4
+  }
+}
+
+requirements: [
+  copper/250
+  lead/200
+  titanium/120
+  thorium/50
+]
+
+category: turret
+research: mortar
