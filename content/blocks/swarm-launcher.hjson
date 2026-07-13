@@ -6,7 +6,7 @@ health: 1200
 range: 350
 ammoPerShot: 4
 
-reload: 180 // Перезарядка между залпами (3 секунды)
+reload: 180 
 
 shoot: {
     type: ShootPattern
@@ -15,7 +15,6 @@ shoot: {
 }
 
 ammoTypes: {
-  // Стандартные ракеты
   blast-compound: {
     type: MissileBulletType
     speed: 3
@@ -28,7 +27,6 @@ ammoTypes: {
     lifetime: 120
     homingPower: 0.1
     homingRange: 150
-    // ГЛАВНОЕ: ракету можно сбить
     hittable: true
     shootEffect: shootSmall
     smokeEffect: shootSmallSmoke

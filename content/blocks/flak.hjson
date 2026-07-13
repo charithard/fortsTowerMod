@@ -4,22 +4,30 @@ description: "Оборонительное орудие для борьбы с �
 size: 2
 health: 700
 range: 200
-// Важно: зенитка в Forts часто бьет и по земле, если враг подошел близко
 targetAir: true
 targetGround: true
 ammoPerShot: 2
 
-// Хорошая скорострельность для перехвата (0.6 сек между выстрелами)
+// Двуствольное чередование для аутентичного темпа зенитки
+shoot: {
+    type: ShootAlternate
+    barrels: 2
+    barrelSpread: 4
+}
+
 reload: 35
 inaccuracy: 3
-rotateSpeed: 12 // Быстрый поворот для слежения за авиацией
+rotateSpeed: 12 
 
 shootSound: shootSnap
 recoil: 2
 shootShake: 1
+heatColor: ffa564
+
+shootEffect: shootSmall
+smokeEffect: shootSmokeMissile
 
 ammoTypes: {
-  // Стандартные осколки
   lead: {
     type: FlakBulletType
     speed: 5
@@ -29,15 +37,31 @@ ammoTypes: {
     explodeRange: 20
     collidesGround: true
     ammoMultiplier: 4
+    
+    // Визуал основного снаряда
+    width: 8
+    height: 10
+    trailLength: 6
+    trailWidth: 1.5
+    trailColor: abbcda
+    frontColor: ffffff
+    backColor: abbcda
+    hitEffect: flakExplosion
+    despawnEffect: flakExplosion
+
     fragBullets: 4
     fragBullet: {
       type: BasicBulletType
       damage: 5
       speed: 2
       lifetime: 10
+      width: 3
+      height: 6
+      frontColor: ffffff
+      backColor: abbcda
     }
   }
-  // Тяжелая шрапнель
+  
   graphite: {
     type: FlakBulletType
     speed: 6
@@ -47,15 +71,30 @@ ammoTypes: {
     explodeRange: 25
     collidesGround: true
     ammoMultiplier: 3
+    
+    width: 9
+    height: 11
+    trailLength: 8
+    trailWidth: 2
+    trailColor: 95abd9
+    frontColor: e2e9f5
+    backColor: 95abd9
+    hitEffect: flakExplosion
+    despawnEffect: flakExplosion
+
     fragBullets: 6
     fragBullet: {
       type: BasicBulletType
       damage: 8
       speed: 2.5
       lifetime: 12
+      width: 4
+      height: 7
+      frontColor: e2e9f5
+      backColor: 95abd9
     }
   }
-  // Стеклянная шрапнель (лучшая против авиации)
+  
   metaglass: {
     type: FlakBulletType
     speed: 5.5
@@ -65,12 +104,32 @@ ammoTypes: {
     explodeRange: 30
     collidesGround: true
     ammoMultiplier: 5
+    
+    width: 8
+    height: 12
+    trailLength: 10
+    trailWidth: 1.8
+    trailColor: ffffff
+    frontColor: ffffff
+    backColor: dcdcdc
+    
+    // Исправлено: заменено на стандартный взрыв зенитки
+    hitEffect: flakExplosion
+    despawnEffect: flakExplosion
+
     fragBullets: 8
     fragBullet: {
       type: BasicBulletType
       damage: 4
       speed: 3
       lifetime: 15
+      width: 3
+      height: 8
+      
+      frontColor: ffffff
+      backColor: e0e0e080 
+      hitEffect: none
+      despawnEffect: none
     }
   }
 }

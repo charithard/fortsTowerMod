@@ -4,39 +4,52 @@ description: "Продвинутая защитная установка. Выс
 size: 2
 health: 1100
 range: 180
-// Дальность чуть меньше, чтобы провоцировать стрельбу "в упор"
 targetAir: true
 targetGround: true
 
-// Скорость стрельбы (чуть медленнее обычной зенитки, но залп мощнее)
 reload: 50
 
+// Изменено на ShootSpread для одновременного выстрела веером
 shoot: {
-    shots: 12 // Вылетает сразу 12 дробин
+    type: ShootSpread
+    shots: 12
+    spread: 25 // Угол веера, идеально сочетается с inaccuracy
 }
 
-// Тот самый большой разброс
 inaccuracy: 25
 rotateSpeed: 8
 
 shootSound: shotgun
 recoil: 4
 shootShake: 2
+heatColor: ff4500
+
+// Мощный выхлоп газов при залпе картечи
+shootEffect: shootBigSmoke
+smokeEffect: shootSmokeSquare
 
 ammoTypes: {
-  // Стандартная дробь
   graphite: {
+    type: BasicBulletType // Добавлено
     speed: 7
     damage: 18
     width: 4
     height: 6
-    shrinkY: 0.3
+    shrinkY: 0.3 // Пуля красиво сужается к концу полета
     lifetime: 30
     ammoMultiplier: 4
-    // Пули исчезают сами по себе, создавая облако
+    
+    frontColor: e2e9f5
+    backColor: 95abd9
+    trailLength: 4
+    trailWidth: 1
+    trailColor: 95abd9
+    hitEffect: hitBulletColor
+    despawnEffect: hitBulletColor
   }
-  // Тяжелая титановая дробь (пробивная)
+  
   titanium: {
+    type: BasicBulletType // Добавлено
     speed: 8
     damage: 24
     width: 5
@@ -46,9 +59,18 @@ ammoTypes: {
     ammoMultiplier: 3
     pierce: true
     pierceCap: 2
+    
+    frontColor: ffffff
+    backColor: 769cd6
+    trailLength: 5
+    trailWidth: 1.2
+    trailColor: a4c2f4
+    hitEffect: flakExplosion
+    despawnEffect: flakExplosion
   }
-  // Огненная дробь
+  
   pyratite: {
+    type: BasicBulletType
     speed: 6.5
     damage: 15
     width: 4
@@ -57,6 +79,15 @@ ammoTypes: {
     status: burning
     lifetime: 35
     ammoMultiplier: 5
+    
+    frontColor: ffa126
+    backColor: ff4500
+    trailLength: 4
+    trailWidth: 1
+    trailColor: ffa126
+    // Исправлено: fireball заменен на рабочий fireHit
+    hitEffect: fireHit
+    despawnEffect: fireHit
   }
 }
 

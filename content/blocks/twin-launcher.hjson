@@ -6,21 +6,18 @@ health: 1500
 range: 320
 ammoPerShot: 6
 
-// Перезарядка между залпами (около 3.5 секунд)
 reload: 210
 
-// Настройка парного выстрела
 shoot: {
     type: ShootPattern
     shots: 2
-    shotDelay: 15 // Задержка между первой и второй ракетой
+    shotDelay: 15
 }
 
 rotateSpeed: 4
 shootSound: missile
 
 ammoTypes: {
-  // Стандартная фугасная ракета
   blast-compound: {
     type: MissileBulletType
     speed: 3.5
@@ -34,7 +31,6 @@ ammoTypes: {
     homingPower: 0.12
     homingRange: 180
     
-    // Ракету можно сбить!
     hittable: true
     absorbable: true
     
@@ -45,14 +41,12 @@ ammoTypes: {
     trailWidth: 2.5
     trailLength: 15
   }
-  // ЭМИ-вариант (если хочешь использовать те же ракеты, но с эффектом)
   silicon: {
     type: MissileBulletType
     speed: 4
     damage: 15
     splashDamage: 30
     splashDamageRadius: 40
-    // Накладывает эффект замедления, который мы создали ранее
     status: emp-paralysis
     statusDuration: 180
     

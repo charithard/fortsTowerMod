@@ -6,15 +6,15 @@ health: 2500
 range: 500
 ammoPerShot: 20
 
-reload: 600 // Перезарядка 10 секунд
-rotateSpeed: 1 // Очень неповоротливая
+reload: 600
+rotateSpeed: 1
 
 consumePower: 4.0
 
 ammoTypes: {
   thorium: {
     type: MissileBulletType
-    speed: 1.5 // Летит ОЧЕНЬ медленно, как в Forts
+    speed: 1.5
     damage: 100
     splashDamage: 500
     splashDamageRadius: 80
@@ -23,16 +23,14 @@ ammoTypes: {
     shrinkY: 0
     lifetime: 350
     
-    // Снаряд "живучий" — его сложно сбить одной пулей
     hittable: true
     absorbable: true
     
-    homingPower: 0.05 // Почти не маневрирует
+    homingPower: 0.05 
     
     hitEffect: reactorExplosion
     despawnEffect: reactorExplosion
     
-    // Визуальный след
     trailColor: ffb380
     trailWidth: 4
     trailLength: 20

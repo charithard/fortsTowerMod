@@ -5,12 +5,10 @@ health: 1200
 range: 220
 category: turret
 
-// Энергия в Mindustry пишется ТОЛЬКО ТАК
 consumes: {
   power: 4.0
 }
 
-// Параметры "как в Forts"
 shootDuration: 120
 reload: 240
 

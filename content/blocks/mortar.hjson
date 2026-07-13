@@ -1,0 +1,142 @@
+type: ItemTurret
+name: "Миномет"
+description: "Оборонительное орудие навесного действия. Запускает осколочно-фугасные снаряды на среднюю дистанцию, эффективно поражая скопления наземных врагов за стенами."
+size: 2
+health: 750
+range: 260
+ammoPerShot: 2
+
+reload: 160
+inaccuracy: 4
+rotateSpeed: 2.5 
+
+shootSound: mediumCannon
+recoil: 4
+shootShake: 2
+heatColor: ff5d00
+
+// Умеренная дульная вспышка и волна для среднего калибра
+shootEffect: [
+    {
+        type: ParticleEffect
+        particles: 5
+        cone: 30
+        length: 16
+        lenFrom: 6
+        lenTo: 0
+        sizeFrom: 4
+        sizeTo: 0
+        colorFrom: ffd37f
+        colorTo: e65c00
+        lifetime: 12
+    }
+    {
+        type: WaveEffect
+        sizeFrom: 0
+        sizeTo: 18
+        strokeFrom: 3
+        strokeTo: 0
+        colorFrom: ffd37f
+        colorTo: e65c0000
+        lifetime: 15
+    }
+]
+
+smokeEffect: {
+    type: ParticleEffect
+    particles: 4
+    cone: 45
+    length: 20
+    sizeFrom: 3
+    sizeTo: 0
+    colorFrom: 8a8a8a
+    colorTo: 5a5a5a00
+    lifetime: 35
+}
+
+ammoTypes: {
+  coal: {
+    type: ArtilleryBulletType
+    speed: 2.5
+    damage: 15
+    splashDamage: 35
+    splashDamageRadius: 30
+    makeFire: true
+    status: burning
+    lifetime: 104
+    ammoMultiplier: 2
+    
+    // Слабый черный шлейф дыма от угля
+    trailLength: 6
+    trailWidth: 2
+    trailColor: 5a5a5a
+    frontColor: ff9800
+    backColor: 5a5a5a
+    
+    hitEffect: hitBulletColor
+    despawnEffect: fireSmoke
+  }
+
+  graphite: {
+    type: ArtilleryBulletType
+    speed: 2.8
+    damage: 25
+    splashDamage: 65
+    splashDamageRadius: 35
+    lifetime: 93
+    ammoMultiplier: 3
+    
+    // Четкий кинетический сине-серый шлейф
+    trailLength: 10
+    trailWidth: 2.5
+    trailColor: 95abd9
+    frontColor: e2e9f5
+    backColor: 95abd9
+    
+    hitEffect: flakExplosion
+    despawnEffect: flakExplosion
+  }
+  
+  pyratite: {
+    type: ArtilleryBulletType
+    speed: 2.6
+    damage: 20
+    splashDamage: 75
+    splashDamageRadius: 40
+    makeFire: true
+    status: burning
+    lifetime: 100
+    ammoMultiplier: 4
+    
+    // Яркий искрящийся шлейф
+    trailLength: 12
+    trailWidth: 2.8
+    trailColor: ff7912
+    frontColor: ffd37f
+    backColor: ff7912
+    
+    // Зажигательный подрыв
+    hitEffect: [
+        {
+            type: ParticleEffect
+            particles: 8
+            length: 18
+            sizeFrom: 2.5
+            sizeTo: 0
+            colorFrom: ffa126
+            colorTo: ff4500
+            lifetime: 25
+        }
+    ]
+    despawnEffect: fireSmoke
+  }
+}
+
+requirements: [
+  copper/140
+  lead/110
+  graphite/45
+]
+
+category: turret
+research: flak // Открывается после базовой зенитки

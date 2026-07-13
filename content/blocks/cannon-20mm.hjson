@@ -6,21 +6,52 @@ health: 1800
 range: 280
 ammoPerShot: 4
 
-// Хороший темп стрельбы для такого калибра
 reload: 60
 rotateSpeed: 4
 inaccuracy: 1
 
-// Огромная отдача и тряска
 recoil: 4
 shootShake: 3
 shootSound: cannon
+heatColor: ff5d00
 
-// Энергия для работы автоматики
-consumePower: 2.0
+// Энергия перенесена в блок consumes
+consumes: {
+  power: 2.0
+}
+
+// Резкая вытянутая дульная вспышка для кинетического орудия
+shootEffect: [
+    {
+        type: ParticleEffect
+        particles: 5
+        cone: 10 // Узкий конус вспышки
+        length: 20
+        lenFrom: 6
+        lenTo: 0
+        sizeFrom: 4
+        sizeTo: 0
+        colorFrom: ffd37f
+        colorTo: ff5d0000
+        lifetime: 12
+    }
+]
+
+smokeEffect: {
+    type: ParticleEffect
+    particles: 4
+    cone: 20
+    length: 24
+    sizeFrom: 3
+    sizeTo: 0
+    colorFrom: b0b0b0
+    colorTo: b0b0b000
+    lifetime: 25
+}
 
 ammoTypes: {
   titanium: {
+    type: BasicBulletType // Добавлено
     speed: 14
     damage: 110
     width: 10
@@ -30,8 +61,32 @@ ammoTypes: {
     pierceCap: 3
     knockback: 1.5
     ammoMultiplier: 2
+    
+    // Сине-голубой бронебойный трассер
+    trailLength: 12
+    trailWidth: 2
+    trailColor: a4c2f4
+    frontColor: ffffff
+    backColor: 769cd6
+    
+    // Искры от пробития брони
+    hitEffect: [
+        {
+            type: ParticleEffect
+            particles: 4
+            length: 12
+            sizeFrom: 2
+            sizeTo: 0
+            colorFrom: a4c2f4
+            colorTo: 769cd600
+            lifetime: 15
+        }
+    ]
+    despawnEffect: hitBulletColor
   }
+  
   thorium: {
+    type: BasicBulletType // Добавлено
     speed: 12
     damage: 160
     width: 12
@@ -41,7 +96,16 @@ ammoTypes: {
     pierceCap: 4
     knockback: 2.0
     ammoMultiplier: 1
+    
+    // Плотный фиолетовый трассер
+    trailLength: 14
+    trailWidth: 2.5
+    trailColor: cb8ebf
+    frontColor: f9c5d1
+    backColor: cb8ebf
+    
     hitEffect: blastExplosion
+    despawnEffect: flakExplosion
   }
 }
 

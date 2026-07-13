@@ -3,30 +3,71 @@ name: "Тяжелый снайпер 'Охотник'"
 description: "Элитное дальнобойное орудие. Прошивает насквозь несколько целей и наносит критический урон строениям. Требует время на стабилизацию перед выстрелом."
 size: 2
 health: 900
-// Огромная дистанция стрельбы
 range: 420
 ammoPerShot: 3
 
-// Длительное прицеливание (почти 1 секунда подготовки)
 shoot: {
+    type: ShootPattern
     firstShotDelay: 55
 }
 
-// Медленная перезарядка (около 3 секунд)
 reload: 180
 inaccuracy: 0
-rotateSpeed: 2 // Очень медленный и тяжелый поворот
+rotateSpeed: 2 
 
-// Потребление энергии для систем наведения
-consumePower: 1.5
+// Потребление энергии перенесено в блок consumes
+consumes: {
+  power: 1.5
+}
 
 recoil: 5
 shootShake: 3
 shootSound: railgun
+heatColor: ff3300
+
+// Запрещаем турели дергаться за целью во время секундного прицеливания
+moveDuringDelay: false
+
+// Лазерный целеуказатель, стягивающийся к центру во время стабилизации
+chargeEffect: {
+    type: WaveEffect
+    sizeFrom: 3
+    sizeTo: 0
+    strokeFrom: 1.5
+    strokeTo: 1.5
+    colorFrom: ff3300
+    colorTo: ff3300
+    lifetime: 55
+}
+
+// Кастомный резкий выхлоп газов без лишней задымленности
+shootEffect: [
+    {
+        type: ParticleEffect
+        particles: 1
+        length: 0
+        sizeFrom: 0
+        colorFrom: ffffff
+        colorTo: ffffff
+        lifetime: 1
+    }
+]
+
+smokeEffect: {
+    type: ParticleEffect
+    particles: 2
+    cone: 10
+    length: 25
+    sizeFrom: 2
+    sizeTo: 0
+    colorFrom: dcdcdc
+    colorTo: dcdcdc00
+    lifetime: 25
+}
 
 ammoTypes: {
-  // Тяжелый графит (бронебойный)
   graphite: {
+    type: BasicBulletType // Добавлено
     speed: 12
     damage: 150
     width: 7
@@ -34,11 +75,21 @@ ammoTypes: {
     lifetime: 35
     ammoMultiplier: 1
     pierce: true
-    pierceCap: 4 // Пробивает 4 цели или стены насквозь
+    pierceCap: 4
+    
+    // Длинный серый трассер
+    trailLength: 20
+    trailWidth: 1.8
+    trailColor: 95abd9
+    frontColor: e2e9f5
+    backColor: 95abd9
+    
     hitEffect: blastExplosion
+    despawnEffect: hitBulletColor
   }
-  // Титановый сердечник (сверхскоростной)
+  
   titanium: {
+    type: BasicBulletType // Добавлено
     speed: 16
     damage: 180
     width: 6
@@ -48,9 +99,20 @@ ammoTypes: {
     pierce: true
     pierceCap: 5
     reloadMultiplier: 1.1
+    
+    // Тонкий, сверхскоростной синий трассер
+    trailLength: 25
+    trailWidth: 1.5
+    trailColor: a4c2f4
+    frontColor: ffffff
+    backColor: 769cd6
+    
+    hitEffect: flakExplosion
+    despawnEffect: flakExplosion
   }
-  // Ториевый снаряд (разрушитель)
+  
   thorium: {
+    type: BasicBulletType // Добавлено
     speed: 10
     damage: 280
     width: 9
@@ -59,7 +121,16 @@ ammoTypes: {
     ammoMultiplier: 1
     pierce: true
     pierceCap: 3
+    
+    // Плотный фиолетовый след
+    trailLength: 22
+    trailWidth: 2.5
+    trailColor: cb8ebf
+    frontColor: f9c5d1
+    backColor: cb8ebf
+    
     hitEffect: massiveExplosion
+    despawnEffect: massiveExplosion
   }
 }
 

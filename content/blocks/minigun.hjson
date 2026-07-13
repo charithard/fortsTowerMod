@@ -6,41 +6,124 @@ health: 600
 range: 170
 ammoPerShot: 1
 
-// Параметры стрельбы: 3 выстрела в очереди, 4 кадра между пулями
 shoot: {
-    type: ShootBurst
+    type: ShootAlternate
     shots: 3
     shotDelay: 4
+    barrels: 1     
+    barrelSpread: 1     
 }
 
-// Перезарядка между очередями (18 кадров = 0.3 сек)
 reload: 18
 inaccuracy: 7.5
 rotateSpeed: 10
 
-// Визуальные эффекты
 recoil: 1.5
 shootShake: 0.8
 shootSound: pew
+heatColor: ffa564
+
+// вспышка из дула при каждом выстреле
+shootEffect: [
+    {
+        type: ParticleEffect
+        particles: 3
+        cone: 20
+        length: 6
+        lenFrom: 4
+        lenTo: 0
+        sizeFrom: 3
+        sizeTo: 0
+        colorFrom: ffe3b8
+        colorTo: ffa564
+        lifetime: 8
+        lightColor: ffcf8a
+        lightOpacity: 0.6
+        lightRadius: 20
+    }
+    {
+        type: WaveEffect
+        sizeFrom: 1
+        sizeTo: 10
+        strokeFrom: 2
+        strokeTo: 0
+        colorFrom: ffe3b8
+        colorTo: ffa56400
+        lifetime: 10
+    }
+]
+
+// лёгкий дым/гильзы после выстрела
+smokeEffect: {
+    type: ParticleEffect
+    particles: 2
+    cone: 30
+    length: 10
+    sizeFrom: 1.5
+    sizeTo: 0
+    colorFrom: cfcfcf
+    colorTo: cfcfcf00
+    lifetime: 25
+}
 
 ammoTypes: {
   copper: {
+    type: BasicBulletType
     speed: 4.5
     damage: 9
     width: 6
     height: 9
     lifetime: 40
     ammoMultiplier: 5
+    frontColor: ffe9c9
+    backColor: c9915a
+    hitColor: c9915a
+    trailLength: 4
+    trailWidth: 1
+    trailColor: ffcf8a
+    hitEffect: hitBulletColor
+    despawnEffect: hitBulletColor
   }
   lead: {
+    type: BasicBulletType
     speed: 4
     damage: 12
     width: 7
     height: 10
     lifetime: 45
     ammoMultiplier: 4
+    frontColor: e3d5f0
+    backColor: 9c7fb3
+    hitColor: 9c7fb3
+    trailLength: 5
+    trailWidth: 1.1
+    trailColor: c8a8e0
+    hitEffect: [
+        {
+            type: ParticleEffect
+            particles: 6
+            length: 14
+            sizeFrom: 2
+            sizeTo: 0
+            colorFrom: e3d5f0
+            colorTo: 9c7fb300
+            lifetime: 16
+        }
+        {
+            type: WaveEffect
+            sizeFrom: 0
+            sizeTo: 14
+            strokeFrom: 1.5
+            strokeTo: 0
+            colorFrom: c8a8e0
+            colorTo: 9c7fb3
+            lifetime: 14
+        }
+    ]
+    despawnEffect: hitBulletColor
   }
   silicon: {
+    type: BasicBulletType
     speed: 4.5
     damage: 10
     width: 6
@@ -49,6 +132,40 @@ ammoTypes: {
     homingPower: 0.08
     homingRange: 50
     ammoMultiplier: 6
+    frontColor: baffef
+    backColor: 4fb8ad
+    hitColor: 4fb8ad
+    trailLength: 6
+    trailWidth: 1
+    trailColor: baffef
+    trailRotation: true
+    shootEffect: shootSmall
+    hitEffect: [
+        {
+            type: ParticleEffect
+            particles: 5
+            line: true
+            length: 12
+            lenFrom: 6
+            lenTo: 0
+            strokeFrom: 1.5
+            strokeTo: 0
+            colorFrom: baffef
+            colorTo: 4fb8ad
+            lifetime: 14
+        }
+        {
+            type: WaveEffect
+            sizeFrom: 0
+            sizeTo: 16
+            strokeFrom: 1.5
+            strokeTo: 0
+            colorFrom: baffef
+            colorTo: 4fb8ad
+            lifetime: 16
+        }
+    ]
+    despawnEffect: hitBulletColor
   }
 }
 
