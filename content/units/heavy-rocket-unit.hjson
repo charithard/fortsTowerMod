@@ -1,0 +1,55 @@
+type: "missile"
+flying: true
+playerControllable: false
+logicControllable: false
+hidden: true
+template: MissileUnitType
+
+health: 80
+hitSize: 16
+speed: 3.0
+missileAccelTime: 90
+rotateSpeed: 0.5
+maxRange: 500
+lifetime: 200
+
+trailColor: "FF3300"
+trailLength: 10
+
+abilities: [
+    {
+        type: MoveEffectAbility
+        effect: {
+            type: ParticleEffect
+            particles: 1
+            cone: 360
+            length: 2
+            sizeFrom: 2
+            sizeTo: 0
+            colorFrom: FF3300
+            colorTo: 66330000
+            lifetime: 10
+        }
+        interval: 2
+        y: -14
+    }
+]
+
+weapons: [
+    {
+        shootSound: none
+        shootCone: 360
+        mirror: false
+        reload: 1
+        shootOnDeath: true
+        shootOnDeathEffect: explosion
+        bullet: {
+            type: ExplosionBulletType
+            damage: 300
+            splashDamage: 150
+            splashDamageRadius: 40
+            hitEffect: explosion
+            hitSound: "explosion"
+        }
+    }
+]

@@ -1,0 +1,44 @@
+{
+  type: ItemTurret
+  name: "Тяжёлый миномёт"
+  description: "Улучшенная версия миномёта."
+  size: 3
+  health: 750
+  category: turret
+  research: "mortar"
+  reload: 40
+  range: 380
+  shootCone: 8
+  rotateSpeed: 2.5
+  shoot: {
+    type: ShootBurst
+    shots: 2
+    burstShots: 2
+    burstSpacing: 4
+  }
+  consumes: { power: 60 }
+  ammoTypes: {
+    mortar-shell: {
+      type: ArtilleryBulletType
+      damage: 70
+      splashDamage: 35
+      splashDamageRadius: 22
+      speed: 4.0
+      lifetime: 130
+      hitSize: 10
+      gravity: 0.5
+      drag: 0.008
+      trailEffect: "smoke"
+      hitEffect: "explosion"
+      shootSound: "artillery"
+      hitSound: "explosion"
+    }
+  }
+  requirements: [
+    { item: copper, amount: 150 }
+    { item: lead, amount: 100 }
+    { item: graphite, amount: 80 }
+    { item: silicon, amount: 50 }
+    { item: upgrade-module, amount: 6 }
+  ]
+}

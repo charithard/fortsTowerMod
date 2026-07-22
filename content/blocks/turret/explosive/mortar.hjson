@@ -1,0 +1,43 @@
+{
+  type: ItemTurret
+  name: "Миномёт"
+  description: "Стреляет тяжёлыми снарядами по навесной траектории. Снаряды можно сбивать."
+  size: 2
+  health: 400
+  category: turret
+  research: "heavy-minigun"
+  reload: 60
+  range: 280
+  shootCone: 10
+  rotateSpeed: 3
+  shoot: {
+    type: ShootBurst
+    shots: 1
+    burstShots: 1
+    burstSpacing: 0
+  }
+  ammoTypes: {
+    mortar-shell: {
+      type: ArtilleryBulletType
+      damage: 45
+      splashDamage: 20
+      splashDamageRadius: 15
+      speed: 3.5
+      lifetime: 110
+      health: 20
+      hitSize: 8
+      gravity: 0.6
+      drag: 0.01
+      trailEffect: "smoke"
+      hitEffect: "explosion"
+      shootSound: "artillery"
+      hitSound: "explosion"
+    }
+  }
+  requirements: [
+    { item: copper, amount: 100 }
+    { item: lead, amount: 60 }
+    { item: graphite, amount: 40 }
+    { item: silicon, amount: 20 }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  type: GenericCrafter
+  name: "Улучшающий центр"
+  description: "Производит улучшающие модули."
+  size: 3
+  health: 800
+  category: production
+  research: "heavy-minigun"
+  consumes: {
+    power: 150
+    items: {
+      graphite: 2
+      titanium: 2
+      silicon: 1
+    }
+  }
+  outputItem: upgrade-module/1
+  craftTime: 120
+  itemCapacity: 10
+  hasPower: true
+  hasItems: true
+}

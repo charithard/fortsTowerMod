@@ -1,5 +1,5 @@
 type: ItemTurret
-name: "Пулемет Forts"
+name: "Пулемет"
 description: "Базовое скорострельное орудие. Выпускает очереди по 3 снаряда. Эффективен для подавления пехоты и защиты от ракет."
 size: 2
 health: 600
@@ -11,19 +11,19 @@ shoot: {
     shots: 3
     shotDelay: 4
     barrels: 1     
-    barrelSpread: 1     
 }
 
 reload: 18
 inaccuracy: 7.5
 rotateSpeed: 10
 
-recoil: 1.5
-shootShake: 0.8
-shootSound: pew
-heatColor: ffa564
+heatRequirement: 0
+cooldownTime: 120
+heatColor: "ffaa00"
 
-// вспышка из дула при каждом выстреле
+recoil: 1.5
+shootSound: pew
+
 shootEffect: [
     {
         type: ParticleEffect
@@ -39,7 +39,6 @@ shootEffect: [
         lifetime: 8
         lightColor: ffcf8a
         lightOpacity: 0.6
-        lightRadius: 20
     }
     {
         type: WaveEffect
@@ -53,7 +52,6 @@ shootEffect: [
     }
 ]
 
-// лёгкий дым/гильзы после выстрела
 smokeEffect: {
     type: ParticleEffect
     particles: 2
@@ -172,6 +170,7 @@ ammoTypes: {
 requirements: [
   copper/85
   lead/60
+  graphite/40
 ]
 
 category: turret

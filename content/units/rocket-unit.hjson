@@ -1,0 +1,32 @@
+type: "missile"
+flying: true
+playerControllable: false
+logicControllable: false
+hidden: true
+template: MissileUnitType
+health: 25
+hitSize: 8
+speed: 3.8
+lifetime: 120
+maxRange: 380
+rotateSpeed: 3.5
+trailColor: "FF5500"
+trailLength: 8
+weapons: [
+    {
+        shootSound: none
+        shootCone: 360
+        mirror: false
+        reload: 1
+        shootOnDeath: true
+        shootOnDeathEffect: explosion
+        bullet: {
+            type: ExplosionBulletType
+            damage: 30
+            splashDamage: 15
+            splashDamageRadius: 12
+            hitEffect: explosion
+            hitSound: "explosion"
+        }
+    }
+]

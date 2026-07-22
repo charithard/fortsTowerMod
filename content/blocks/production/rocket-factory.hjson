@@ -1,0 +1,22 @@
+{
+  type: GenericCrafter
+  name: "Ракетный завод"
+  description: "Производит ракетные боеприпасы."
+  size: 3
+  health: 600
+  category: production
+  consumes: {
+    power: 120
+    items: {
+      graphite: 2
+      titanium: 2
+      silicon: 1
+      pyratite: 1
+    }
+  }
+  outputItem: rocket-ammo/2
+  craftTime: 90
+  itemCapacity: 20
+  hasPower: true
+  hasItems: true
+}

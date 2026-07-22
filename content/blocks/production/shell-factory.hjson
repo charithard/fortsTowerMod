@@ -1,0 +1,21 @@
+{
+  type: GenericCrafter
+  name: "Снарядный завод"
+  description: "Производит миномётные снаряды."
+  size: 3
+  health: 600
+  category: production
+  consumes: {
+    power: 100
+    items: {
+      graphite: 3
+      lead: 2
+      sand: 1
+    }
+  }
+  outputItem: mortar-shell/3
+  craftTime: 60
+  itemCapacity: 20
+  hasPower: true
+  hasItems: true
+}

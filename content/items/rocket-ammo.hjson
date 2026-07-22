@@ -1,0 +1,9 @@
+{
+  name: "Ракетный боеприпас"
+  description: "Тяжёлая ракета с самонаведением."
+  flammability: 0.5
+  explosiveness: 1.8
+  hardness: 2
+  cost: 2.5
+  color: "FF5500"
+}

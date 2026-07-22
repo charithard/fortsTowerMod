@@ -1,0 +1,40 @@
+{
+  type: ItemTurret
+  name: "Тяжёлая ракетная шахта"
+  description: "Запускает одну огромную боеголовку."
+  size: 4
+  health: 1200
+  category: turret
+  research: "rocket-launcher"
+  reload: 180
+  range: 500
+  shootCone: 2
+  rotateSpeed: 1
+  shoot: {
+    type: ShootBurst
+    shots: 1
+    burstShots: 1
+    burstSpacing: 0
+  }
+  consumes: { power: 100 }
+  ammoTypes: {
+    rocket-ammo: {
+      type: BasicBulletType
+      speed: 0
+      keepVelocity: false
+      lifetime: 1
+      despawnEffect: none
+      hitEffect: none
+      spawnUnit: "heavy-rocket-unit"
+      shootSound: "missile"
+    }
+  }
+  requirements: [
+    { item: copper, amount: 200 }
+    { item: lead, amount: 150 }
+    { item: graphite, amount: 100 }
+    { item: silicon, amount: 80 }
+    { item: titanium, amount: 60 }
+    { item: upgrade-module, amount: 8 }
+  ]
+}

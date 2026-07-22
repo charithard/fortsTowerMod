@@ -1,0 +1,9 @@
+{
+  name: "Миномётный снаряд"
+  description: "Тяжёлый фугасный снаряд для навесной стрельбы."
+  flammability: 0.2
+  explosiveness: 1.2
+  hardness: 3
+  cost: 1.8
+  color: "888888"
+}

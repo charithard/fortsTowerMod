@@ -7,7 +7,6 @@ range: 350
 ammoPerShot: 2
 
 shoot: {
-    // firstShotDelay требует обязательного указания типа ShootPattern (или дефолтного)
     type: ShootPattern
     firstShotDelay: 40
 }
@@ -17,23 +16,8 @@ inaccuracy: 0
 rotateSpeed: 3
 
 recoil: 4
-shootShake: 2
 shootSound: railgun
 
-// Длинный тонкий лазер, который стягивается к центру во время прицеливания (40 тиков)
-moveDuringDelay: false
-chargeEffect: {
-    type: WaveEffect
-    sizeFrom: 2
-    sizeTo: 0
-    strokeFrom: 1.5
-    strokeTo: 1.5
-    colorFrom: ff0000
-    colorTo: ff0000
-    lifetime: 40
-}
-
-// Кастомная вспышка: длинная тонкая линия выстрела
 shootEffect: [
     {
         type: ParticleEffect
@@ -70,7 +54,6 @@ ammoTypes: {
     pierce: true
     pierceCap: 1
     
-    // Тонкий длинный трассер
     trailLength: 15
     trailWidth: 1.2
     trailColor: abbcda
@@ -104,7 +87,7 @@ ammoTypes: {
     height: 18
     lifetime: 40
     homingPower: 0.05
-    homingRange: 80 // Добавлен радиус наведения, без него голый homingPower плохо работает
+    homingRange: 80
     ammoMultiplier: 2
     
     trailLength: 14
