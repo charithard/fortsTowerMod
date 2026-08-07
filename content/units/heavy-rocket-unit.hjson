@@ -5,13 +5,13 @@ logicControllable: false
 hidden: true
 template: MissileUnitType
 
-health: 80
+health: 400
 hitSize: 16
 speed: 3.0
 missileAccelTime: 90
 rotateSpeed: 0.5
 maxRange: 500
-lifetime: 200
+lifetime: 360
 
 trailColor: "FF3300"
 trailLength: 10

@@ -1,4 +1,4 @@
-{
+
   type: ItemTurret
   name: "Тяжёлый миномёт"
   description: "Улучшенная версия миномёта."
@@ -11,10 +11,7 @@
   shootCone: 8
   rotateSpeed: 2.5
   shoot: {
-    type: ShootBurst
     shots: 2
-    burstShots: 2
-    burstSpacing: 4
   }
   consumes: { power: 60 }
   ammoTypes: {
@@ -26,11 +23,10 @@
       speed: 4.0
       lifetime: 130
       hitSize: 10
-      gravity: 0.5
       drag: 0.008
       trailEffect: "smoke"
       hitEffect: "explosion"
-      shootSound: "artillery"
+      shootSound: shootScathe
       hitSound: "explosion"
     }
   }
@@ -41,4 +37,3 @@
     { item: silicon, amount: 50 }
     { item: upgrade-module, amount: 6 }
   ]
-}

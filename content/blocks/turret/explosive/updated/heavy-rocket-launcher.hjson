@@ -1,4 +1,4 @@
-{
+
   type: ItemTurret
   name: "Тяжёлая ракетная шахта"
   description: "Запускает одну огромную боеголовку."
@@ -11,10 +11,8 @@
   shootCone: 2
   rotateSpeed: 1
   shoot: {
-    type: ShootBurst
+    
     shots: 1
-    burstShots: 1
-    burstSpacing: 0
   }
   consumes: { power: 100 }
   ammoTypes: {
@@ -25,8 +23,8 @@
       lifetime: 1
       despawnEffect: none
       hitEffect: none
-      spawnUnit: "heavy-rocket-unit"
-      shootSound: "missile"
+      spawnUnit: heavy-rocket-unit
+      shootSound: shootMissileLong
     }
   }
   requirements: [
@@ -37,4 +35,3 @@
     { item: titanium, amount: 60 }
     { item: upgrade-module, amount: 8 }
   ]
-}

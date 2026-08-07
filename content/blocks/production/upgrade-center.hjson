@@ -1,4 +1,4 @@
-{
+
   type: GenericCrafter
   name: "Улучшающий центр"
   description: "Производит улучшающие модули."
@@ -19,4 +19,3 @@
   itemCapacity: 10
   hasPower: true
   hasItems: true
-}

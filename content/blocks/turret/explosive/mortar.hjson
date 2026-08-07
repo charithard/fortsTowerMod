@@ -11,10 +11,8 @@
   shootCone: 10
   rotateSpeed: 3
   shoot: {
-    type: ShootBurst
+    
     shots: 1
-    burstShots: 1
-    burstSpacing: 0
   }
   ammoTypes: {
     mortar-shell: {
@@ -24,14 +22,12 @@
       splashDamageRadius: 15
       speed: 3.5
       lifetime: 110
-      health: 20
       hitSize: 8
-      gravity: 0.6
       drag: 0.01
       trailEffect: "smoke"
-      hitEffect: "explosion"
-      shootSound: "artillery"
-      hitSound: "explosion"
+      hitEffect: explosion
+      shootSound: shootRipple
+      hitSound: explosion
     }
   }
   requirements: [

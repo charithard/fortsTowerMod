@@ -1,7 +1,7 @@
 type: ItemTurret
 name: "Тяжелый снайпер 'Охотник'"
 description: "Элитное дальнобойное орудие. Прошивает насквозь несколько целей и наносит критический урон строениям. Требует время на стабилизацию перед выстрелом."
-size: 2
+size: 3
 health: 900
 range: 420
 ammoPerShot: 3
@@ -20,7 +20,7 @@ consumes: {
 }
 
 recoil: 5
-shootSound: railgun
+shootSound: shootForeshadow
 heatColor: ff3300
 
 shootEffect: [

@@ -16,7 +16,7 @@ inaccuracy: 0
 rotateSpeed: 3
 
 recoil: 4
-shootSound: railgun
+shootSound: shootForeshadow
 
 shootEffect: [
     {

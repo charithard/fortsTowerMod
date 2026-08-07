@@ -1,4 +1,4 @@
-{
+
   type: ItemTurret
   name: "Ракетная шахта"
   description: "Запускает рой из 12 самонаводящихся ракет."
@@ -11,11 +11,10 @@
   shootCone: 15
   rotateSpeed: 2
   shoot: {
-    type: ShootBurst
+    
     shots: 12
-    burstShots: 12
-    burstSpacing: 4
-  }
+    shotDelay: 3
+}
   consumes: { power: 40 }
   ammoTypes: {
     rocket-ammo: {
@@ -25,15 +24,14 @@
       lifetime: 1
       despawnEffect: none
       hitEffect: none
-      spawnUnit: "rocket-unit"
-      shootSound: "missile"
+      spawnUnit: rocket-unit
+      shootSound: shootMissileShort
     }
   }
   requirements: [
-    { item: copper, amount: 120 }
-    { item: lead, amount: 80 }
-    { item: graphite, amount: 60 }
-    { item: silicon, amount: 40 }
-    { item: titanium, amount: 30 }
-  ]
-}
+  copper/120
+  lead/100
+  graphite/40
+  silicon/40
+  titanium/30
+]

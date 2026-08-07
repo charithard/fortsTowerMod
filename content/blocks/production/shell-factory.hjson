@@ -1,4 +1,4 @@
-{
+
   type: GenericCrafter
   name: "Снарядный завод"
   description: "Производит миномётные снаряды."
@@ -18,4 +18,3 @@
   itemCapacity: 20
   hasPower: true
   hasItems: true
-}

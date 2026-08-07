@@ -4,12 +4,12 @@ playerControllable: false
 logicControllable: false
 hidden: true
 template: MissileUnitType
-health: 25
+health: 200
 hitSize: 8
 speed: 3.8
-lifetime: 120
+lifetime: 360
 maxRange: 380
-rotateSpeed: 3.5
+rotateSpeed: 1.5
 trailColor: "FF5500"
 trailLength: 8
 weapons: [
